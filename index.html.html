@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💝 Will You Be My Valentine?</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Playfair+Display:wght@700;900&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Matter.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+    
+</head>
+<body>
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+    
+    <!-- Confetti Container -->
+    <div class="confetti-container" id="confettiContainer"></div>
+    
+    <!-- Toast Message -->
+    <div class="toast" id="toast"></div>
+    
+    <!-- Mute Button -->
+    <button class="mute-btn" id="muteBtn" title="Toggle Music">🔊</button>
+    
+    <!-- ==================================== -->
+    <!-- STAGE 1: CLAW MACHINE -->
+    <!-- ==================================== -->
+    <div class="stage active" id="stage1">
+        <div class="machine-container">
+            <div class="top-heart">💝</div>
+            
+            <div class="machine-header">
+                <h1 class="machine-title">Catch My Heart</h1>
+                <p class="machine-subtitle">Can you catch it, sayang? 💕</p>
+            </div>
+            
+            <div class="game-area">
+                <div class="game-canvas-wrapper">
+                    <canvas id="clawCanvas"></canvas>
+                    <div class="attempts-badge" id="attemptsCounter">ATTEMPTS: ∞</div>
+                    <div class="hearts-decoration">
+                        <span>💖</span>
+                        <span>💕</span>
+                        <span>💗</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="control-panel">
+                <div class="direction-controls">
+                    <button class="control-btn" id="moveLeft">←</button>
+                    <button class="control-btn" id="moveRight">→</button>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="drop-btn" id="dropBtn">🎯 Drop Claw</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ==================================== -->
+    <!-- STAGE 2: LOVE LETTER -->
+    <!-- ==================================== -->
+    <div class="stage" id="stage2">
+        <div class="letter-container">
+            <div class="envelope-wrapper">
+                <div class="envelope" id="envelope">
+                    <div class="envelope-body"></div>
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-heart">💌</div>
+                </div>
+                <p class="click-hint">Klik untuk membuka surat 💕</p>
+            </div>
+            
+            <div class="letter-content" id="letterContent">
+                <h2 class="letter-title">To My Dearest Valentine 💝</h2>
+                
+                <div class="letter-text">
+                    <p style="margin-bottom: 16px;">
+                        <strong>Happy Valentine’s Day, my love,</strong>
+                    </p>
+                    
+                    <p style="margin-bottom: 16px;">
+                        I’ve been thinking a lot about how to say this without making it sound too perfect, because what we have isn’t perfect and that’s exactly why it means so much to me. Loving you hasn’t always been easy, but it has always felt real. You’re not just someone I care about; you’re someone who changed the way I see love, patience, and effort. </p>
+                    
+                    <p style="margin-bottom: 16px;">
+                        I love you because you stay. Even on days when things feel heavy, confusing, or exhausting, you still try. You still listen. You still choose us. That matters more to me than you probably realize. With you, I don’t feel like I have to hide the messy parts of myself. I can be honest, unsure, quiet and still feel accepted.  </p>
+                    
+                    <p style="margin-bottom: 16px;">
+                        Some of my favorite memories with you aren’t the big moments. They’re the late talks, the random laughs, the silence that doesn’t feel awkward, the moments where everything feels calm just because you’re there. Those are the things I hold onto. Those are the moments that remind me why I love you.                    </p>
+                    
+                    <p style="margin-bottom: 16px;">
+                        There are things about you I’ll never forget how you comfort me when my mind is too loud, how your presence alone can make a bad day feel lighter, how loving you feels safe. Not perfect, not dramatic, just genuine. And honestly, that’s all I’ve ever wanted.                    </p>
+                    
+                    <p style="margin-bottom: 16px;">
+                        Today isn’t just about Valentine’s Day. It’s about us. About how far we’ve come, how much we’ve learned, and how we keep choosing each other even when it’s hard. I want more days with you more conversations, more growth, more memories we’ll look back on and smile at. I want to keep building something real with you, step by step.                    </p>
+                    
+                    <p style="margin-bottom: 16px;">
+                        Thank you for loving me the way you do. Thank you for being patient, for trying, for staying. I know I’m not always easy to love, but I’m grateful it’s you beside me. If love is a choice, then I want you to know this: I choose you. Today, and every day after.                    </p>
+                    
+                    <p>
+                        <em>I love you more than words can ever express, more than actions can ever show. You are my yesterday, my today, and all of my tomorrows.</em> ❤️
+                    </p>
+                    
+                    <p style="margin-top: 20px; text-align: right;">
+                        <strong>Happy Valentine’s Day,</strong><br>
+                        <strong>I love you, truly. 💕</strong>
+                    </p>
+                </div>
+                
+                <div class="photo-frames">
+                    <div class="photo-frame">
+                        <div class="photo-placeholder">📷</div>
+                        <div class="photo-label">cantikkk</div>
+                        <!-- Uncomment dan ganti dengan link foto kalian -->
+                        <img src="poto dua.jpeg" alt="Our Photo 1"> 
+                    </div>
+                    <div class="photo-frame">
+                        <div class="photo-placeholder">📸</div>
+                        <div class="photo-label">pretyy</div>
+                        <!-- Uncomment dan ganti dengan link foto kalian -->
+                        <img src="poto hiji.jpeg" alt="Our Photo 2"> 
+                    </div>
+                </div>
+                
+                <button class="continue-btn" id="continueBtn">Continue 💕</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ==================================== -->
+    <!-- STAGE 3: PROPOSAL -->
+    <!-- ==================================== -->
+    <div class="stage" id="stage3">
+        <div class="proposal-container">
+            <div class="proposal-emoji">💖</div>
+            <h1 class="proposal-title">Will You Be My Valentine?</h1>
+            
+            <div class="proposal-buttons">
+                <button class="proposal-btn yes-btn" id="yesBtn">Yes! 💕</button>
+                <button class="proposal-btn no-btn" id="noBtn">No</button>
+            </div>
+            
+            <div class="plea-text" id="pleaText"></div>
+        </div>
+    </div>
+    
+    <!-- ==================================== -->
+    <!-- STAGE 4: GRAND FINALE -->
+    <!-- ==================================== -->
+    <div class="stage" id="stage4">
+        <div class="finale-container">
+            <h1 class="finale-title">🎉 Yaaay! 🎉</h1>
+            <p class="finale-subtitle">Makaciii udah mau jadi valentine aku! ❤️</p>
+            
+            <div class="surprise-section">
+                <h3 class="surprise-title">🎁 Tracking Surprise 🎁</h3>
+                <p class="surprise-subtitle">Klik setiap kado untuk membuka surprise-mu!</p>
+                
+                <div class="gift-boxes">
+                    <div class="gift-box" data-gift="1">
+                        <div class="gift-icon">🎁</div>
+                        <div class="gift-label">Gift 1</div>
+                    </div>
+                    <div class="gift-box" data-gift="2">
+                        <div class="gift-icon">🎁</div>
+                        <div class="gift-label">Gift 2</div>
+                    </div>
+                    <div class="gift-box" data-gift="3">
+                        <div class="gift-icon">🎁</div>
+                        <div class="gift-label">Gift 3</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Gift Popup -->
+    <div class="gift-popup" id="giftPopup">
+        <div class="popup-content">
+            <div class="popup-emoji" id="popupEmoji">💝</div>
+            <div class="popup-message" id="popupMessage"></div>
+            <img class="popup-gif" id="popupGif" src="" alt="Gift GIF">
+            <button class="close-popup-btn" id="closePopupBtn">Close</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
